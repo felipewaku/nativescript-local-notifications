@@ -80,7 +80,8 @@ LocalNotifications.schedule = function (arg) {
             .setSound(options.sound === null ? null : android.net.Uri.parse(options.sound))
             .setNumber(options.badge)
             .setOngoing(options.ongoing)//sets the notification to ongoing if it's true.
-            .setTicker(options.ticker || options.body);
+            .setTicker(options.ticker || options.body)
+            .setVibrate([500]);
 
         if(options.groupedMessages != null && Array.isArray(options.groupedMessages)){
             var inboxStyle = new android.support.v4.app.NotificationCompat.InboxStyle();
