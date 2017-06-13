@@ -91,6 +91,12 @@ declare namespace localNotifications {
          * Android only.
          */
         groupSummary?:string;
+
+
+        /**
+         * Set the vibration pattern
+         */
+        vibrate?: Array<number>
     }
 
     export interface ReceivedNotification {
