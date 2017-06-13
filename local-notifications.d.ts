@@ -103,6 +103,11 @@ declare namespace localNotifications {
          * 
          */
         priority?: number;
+
+        /**
+         * Removes the notification from the statusbar once tapped
+         */
+        autocancel: boolean;
     }
 
     export interface ReceivedNotification {

@@ -77,6 +77,10 @@ LocalNotifications.schedule = function (arg) {
           options.priority = 0;
         }
 
+        if (options.autocancel === undefined) {
+          options.autocancel = true;
+        }
+
         // TODO best move this to native lib so we can reuse it in the restorereceiver (dupe for now)
         var builder = new android.support.v4.app.NotificationCompat.Builder(context)
             .setDefaults(0)
@@ -84,7 +88,7 @@ LocalNotifications.schedule = function (arg) {
             .setContentText(options.body)
             .setSmallIcon(options.smallIcon)
             .setLargeIcon(options.largeIconDrawable)
-            .setAutoCancel(true) // removes the notification from the statusbar once tapped
+            .setAutoCancel(options.autocancel)
             .setSound(options.sound === null ? null : android.net.Uri.parse(options.sound))
             .setNumber(options.badge)
             .setOngoing(options.ongoing)//sets the notification to ongoing if it's true.
