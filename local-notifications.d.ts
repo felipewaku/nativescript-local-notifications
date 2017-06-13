@@ -107,7 +107,7 @@ declare namespace localNotifications {
         /**
          * Removes the notification from the statusbar once tapped
          */
-        autocancel: boolean;
+        autocancel?: boolean;
     }
 
     export interface ReceivedNotification {
