@@ -97,6 +97,12 @@ declare namespace localNotifications {
          * Set the vibration pattern
          */
         vibrate?: Array<number>
+
+        /**
+         * Set the priority from -2 to 2
+         * 
+         */
+        priority?: number;
     }
 
     export interface ReceivedNotification {

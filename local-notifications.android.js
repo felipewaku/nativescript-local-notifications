@@ -69,6 +69,14 @@ LocalNotifications.schedule = function (arg) {
           options.sound = android.media.RingtoneManager.getDefaultUri(android.media.RingtoneManager.TYPE_NOTIFICATION).toString();
         }
 
+        if (options.vibrate === undefined) {
+          options.vibrate = [];
+        }
+
+        if (options.priority === undefined) {
+          options.priority = 0;
+        }
+
         // TODO best move this to native lib so we can reuse it in the restorereceiver (dupe for now)
         var builder = new android.support.v4.app.NotificationCompat.Builder(context)
             .setDefaults(0)
@@ -81,6 +89,7 @@ LocalNotifications.schedule = function (arg) {
             .setNumber(options.badge)
             .setOngoing(options.ongoing)//sets the notification to ongoing if it's true.
             .setTicker(options.ticker || options.body)
+            .setPriority(options.priority)
             .setVibrate(options.vibrate);
 
         if(options.groupedMessages != null && Array.isArray(options.groupedMessages)){
